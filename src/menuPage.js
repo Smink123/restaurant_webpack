@@ -282,4 +282,6 @@ export function menuItems(infoArea) {
   createMenuSection("mainSection", "MAINS", main);
   createMenuSection("dessertSection", "DESSERT", dessert);
   createMenuSection("drinkSection", "DRINKS", drinks);
+
+  console.log('hello')
 }
