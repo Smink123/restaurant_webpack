@@ -1,0 +1,184 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+  }
+
+body {
+    background-color:bisque;
+    margin: 0;
+}
+
+#content {
+    width: 100vw;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    height: auto;
+}
+
+.infoArea {
+    flex: 3;
+    background-color: cornflowerblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+
+.restaurantHeading {
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 9rem;
+    margin: 0;
+}
+
+.restaurantIntro {
+    font-size: 2rem;
+    font-family: 'Courier New', Courier, monospace;
+    height: auto;
+    width: 80%;
+    text-align: center;
+}
+
+/*sticky side bar - done so with position, top and height property*/
+.navBar {
+    position: sticky;
+    top: 0;
+    flex: 1;
+    background-color: aquamarine;
+    animation: moveToRight ease 1s;
+    height: 100vh;
+}
+
+  @keyframes moveToRight {
+    0% {
+        transform: translateX(-500px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+
+.navTitles {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2rem;
+}
+
+.linkSpace {
+    background-color: aliceblue;
+    border: 1px solid black;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.linkSpace:hover {
+    cursor: pointer;
+}
+
+.navLogo {
+    display: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 4rem;
+    text-align: center;
+}
+
+.fullMenuSection {
+    width: 90%;
+    height: auto;
+    background-color: yellowgreen;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.menuSection {
+    width: 100%;
+    height: auto;
+    background-color: lightskyblue;
+    margin: 50px;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.itemBox {
+    width: 800px;
+    height: 400px;
+    margin: 50px;
+    display: flex;
+    flex-direction: row;
+}
+
+.imageDiv {
+    margin-right: 20px;
+    flex: 1;
+    background-color: lightsalmon;
+    overflow: hidden;
+}
+
+.textBox {
+    margin-left: 20px;
+    flex: 1;
+    background-color: mediumseagreen;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Vertically space the child divs */
+}
+
+
+.infoBottom {
+    width: 100%;
+    background-color: darkcyan;
+}
+
+.infoTop {
+    width: 100%;
+    background-color: hotpink;
+}
+
+.menuNavBar {
+    background-color: yellow;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    position: sticky;
+    top: 0;
+}
+
+/*contact page*/
+.contactFormSpace {
+    width: 90%;
+    height: 100%;
+    background-color: aqua;
+    display: flex;
+    flex-direction: row;
+}
+
+.formArea {
+    height: 100%;
+    flex: 2;
+    background-color: violet;
+}
+
+.listedInfo {
+    height: 100%;
+    flex: 1;
+    background-color: blueviolet;
+}
+
+.pageTitle {
+    font-size: 3rem;
+}
