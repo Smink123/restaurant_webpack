@@ -167,18 +167,43 @@ body {
     flex-direction: row;
 }
 
-.formArea {
-    height: 100%;
-    flex: 2;
-    background-color: violet;
-}
-
 .listedInfo {
     height: 100%;
+    background-color: darksalmon;
     flex: 1;
     background-color: blueviolet;
 }
 
+.formSide {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100%;
+    background-color: yellow;
+}
+
+.formArea {
+    height: 100%;
+    width: 100%;
+    background-color: violet;
+    text-align: left;
+}
+
 .pageTitle {
     font-size: 3rem;
+}
+
+.submitSuccessful {
+    margin: 0;
+}
+
+input[type="text"] {
+    width: 100%;
+}
+
+.labelDiv {
+    display: flex;
+    flex-direction: column;
+    background-color: aqua;
+    margin-bottom: 20px;
 }

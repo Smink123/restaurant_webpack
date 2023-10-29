@@ -1,4 +1,5 @@
 export function contactPage(infoArea) {
+
   const contactTitle = document.createElement("p");
   contactTitle.textContent = "CONTACT US";
   contactTitle.classList.add("pageTitle");
@@ -20,14 +21,19 @@ export function contactPage(infoArea) {
   listedInfo.classList.add("listedInfo");
   contactFormSpace.appendChild(listedInfo);
 
-  const formArea = document.createElement("div");
-  formArea.classList.add("formArea");
-  contactFormSpace.appendChild(formArea);
+  const formSide = document.createElement('div')
+  formSide.classList.add('formSide')
+  contactFormSpace.appendChild(formSide)
+
+  const form = document.createElement("form");
+  form.classList.add("formArea");
+  formSide.appendChild(form);
 
   //function to format the input boxes + labels
   function contactFormLayout(labelName, labelContent) {
     const labelDiv = document.createElement("div");
-    formArea.appendChild(labelDiv);
+    labelDiv.classList.add('labelDiv')
+    form.appendChild(labelDiv);
 
     const inputLabel = document.createElement("label");
     inputLabel.setAttribute("for", labelName);
@@ -45,6 +51,21 @@ export function contactPage(infoArea) {
   contactFormLayout("emailAddress", "Email Address");
   contactFormLayout("contactNumber", "Phone Number");
   contactFormLayout("messageSubject", "Subject Title");
+
+  const submitButton = document.createElement('input');
+  submitButton.type = 'submit';
+  submitButton.value = 'SUBMIT';
+  form.appendChild(submitButton);
+
+  const submitSuccessful = document.createElement('p');
+  submitSuccessful.classList.add('submitSuccessful')
+  formSide.appendChild(submitSuccessful)
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    submitSuccessful.textContent = 'Enquiry successfully submitted. We will be in contact shortly.';
+    form.style.display = 'none'
+  })
 
   const contactInfo = [
     'Come and speak to us at',
