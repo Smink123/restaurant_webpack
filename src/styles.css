@@ -6,9 +6,17 @@ html {
     scroll-behavior: smooth;
   }
 
+  @font-face {
+    font-family: 'mainBodyFont';
+    src: url('./Chivo-VariableFont_wght.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 100;
+  }
+
+
 body {
-    background-color:bisque;
     margin: 0;
+    font-family: 'mainBodyFont';
 }
 
 #content {
@@ -31,17 +39,19 @@ body {
 
 .restaurantHeading {
     text-align: center;
-    font-family: 'Courier New', Courier, monospace;
     font-size: 9rem;
     margin: 0;
 }
 
 .restaurantIntro {
-    font-size: 2rem;
-    font-family: 'Courier New', Courier, monospace;
     height: auto;
     width: 80%;
     text-align: center;
+}
+
+.pageTitle {
+    font-size: 4rem;
+    font-weight: 600;
 }
 
 /*sticky side bar - done so with position, top and height property*/
@@ -65,7 +75,6 @@ body {
 
 
 .navTitles {
-    font-family: 'Courier New', Courier, monospace;
     font-size: 2rem;
 }
 
@@ -91,10 +100,11 @@ body {
     text-align: center;
 }
 
+/* menu page */
+
 .fullMenuSection {
     width: 90%;
     height: auto;
-    background-color: yellowgreen;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -104,13 +114,31 @@ body {
 .menuSection {
     width: 100%;
     height: auto;
-    background-color: lightskyblue;
-    margin: 50px;
-    padding: 50px;
+    font-size: 3rem;
+    margin: 180px 0 20px;
+    padding-top: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-bottom: 1px black solid;
+}
+
+.menuNavBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    padding: 20px;
+    position: sticky;
+    top: 0;
+    background-color: inherit;
+}
+
+.menuLink {
+    font-size: 1rem;
+    text-decoration: none;
+    color: black;
 }
 
 .itemBox {
@@ -131,31 +159,28 @@ body {
 .textBox {
     margin-left: 20px;
     flex: 1;
-    background-color: mediumseagreen;
     display: flex;
     flex-direction: column;
     justify-content: space-between; /* Vertically space the child divs */
 }
 
+.foodTitle {
+    font-size: 2rem;
+}
+
+.requirements {
+    font-style: italic;
+}
+
 
 .infoBottom {
     width: 100%;
-    background-color: darkcyan;
+    text-align: right;
 }
 
 .infoTop {
     width: 100%;
-    background-color: hotpink;
-}
-
-.menuNavBar {
-    background-color: yellow;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    width: 100%;
-    position: sticky;
-    top: 0;
+    text-align: justify;
 }
 
 /*contact page*/
@@ -187,10 +212,6 @@ body {
     text-align: left;
 }
 
-.pageTitle {
-    font-size: 3rem;
-}
-
 .submitSuccessful {
     margin: 0;
 }
@@ -209,4 +230,14 @@ input[type="text"] {
     min-height: 100px;
     max-height: 300px;
     resize: vertical;
+}
+
+/* about page */
+.aboutArea {
+    height: 100%;
+    background-color: yellowgreen;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }

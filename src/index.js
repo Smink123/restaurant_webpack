@@ -25,15 +25,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // the data out links contain 
     const linkData = [
         {
-            text: 'about',
+            text: 'ABOUT',
             showPage: () => intro(infoArea) // by passing the infoArea div as an argument, the intro function will be able to access the div - even if they are in different modules!
         },
         {
-            text: 'menu',
+            text: 'MENU',
             showPage: () => menuItems(infoArea)
         },
         {
-            text: 'contact',
+            text: 'CONTACT',
             showPage: () => contactPage(infoArea)
         }
     ]

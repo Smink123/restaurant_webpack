@@ -9,7 +9,7 @@ export function contactPage(infoArea) {
   infoArea.appendChild(contactIntroDiv);
 
   const contactIntro = document.createElement("p");
-  contactIntro.textContent = "This is example text";
+  contactIntro.textContent = "Whether you have questions, wish to make a reservation, or just want to say hello, this is the place to reach us directly. Choose from the three contact options on the left, or simply fill out the contact form, and we'll get back to you shortly.";
   contactIntroDiv.appendChild(contactIntro);
 
   const contactFormSpace = document.createElement("div");
@@ -52,7 +52,6 @@ export function contactPage(infoArea) {
   contactFormLayout("messageSubject", "Subject Title");
 
   //message text box
-
   const messageDiv = document.createElement("div");
   messageDiv.classList.add("labelDiv");
   form.appendChild(messageDiv);
@@ -66,10 +65,7 @@ export function contactPage(infoArea) {
   messageArea.name = "messageArea";
   messageArea.setAttribute("id", "messageArea");
   messageDiv.appendChild(messageArea);
-/*
-  const textarea = document.getElementById('messageArea');
-textarea.style.maxHeight = '300px';
-textarea.style.minHeight = '100px';*/
+
 
   //submit button
   const submitButton = document.createElement("input");
@@ -108,7 +104,7 @@ textarea.style.minHeight = '100px';*/
       form.style.display = "none";
     } else {
       submitUnsuccessful.textContent =
-        "Submit unsuccessful. Please fill in all fields.";
+        "Submit unsuccessful. Please fill in all fields correctly.";
     }
   });
 
