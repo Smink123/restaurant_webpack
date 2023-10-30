@@ -175,16 +175,14 @@ body {
 }
 
 .formSide {
-    display: flex;
-    flex-direction: column;
     flex: 1;
     height: 100%;
     background-color: yellow;
 }
 
 .formArea {
-    height: 100%;
-    width: 100%;
+    height: auto;
+    width: auto;
     background-color: violet;
     text-align: left;
 }
@@ -204,6 +202,11 @@ input[type="text"] {
 .labelDiv {
     display: flex;
     flex-direction: column;
-    background-color: aqua;
     margin-bottom: 20px;
+}
+
+#messageArea {
+    min-height: 100px;
+    max-height: 300px;
+    resize: vertical;
 }

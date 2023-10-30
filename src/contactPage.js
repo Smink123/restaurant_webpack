@@ -1,5 +1,4 @@
 export function contactPage(infoArea) {
-
   const contactTitle = document.createElement("p");
   contactTitle.textContent = "CONTACT US";
   contactTitle.classList.add("pageTitle");
@@ -21,9 +20,9 @@ export function contactPage(infoArea) {
   listedInfo.classList.add("listedInfo");
   contactFormSpace.appendChild(listedInfo);
 
-  const formSide = document.createElement('div')
-  formSide.classList.add('formSide')
-  contactFormSpace.appendChild(formSide)
+  const formSide = document.createElement("div");
+  formSide.classList.add("formSide");
+  contactFormSpace.appendChild(formSide);
 
   const form = document.createElement("form");
   form.classList.add("formArea");
@@ -32,7 +31,7 @@ export function contactPage(infoArea) {
   //function to format the input boxes + labels
   function contactFormLayout(labelName, labelContent) {
     const labelDiv = document.createElement("div");
-    labelDiv.classList.add('labelDiv')
+    labelDiv.classList.add("labelDiv");
     form.appendChild(labelDiv);
 
     const inputLabel = document.createElement("label");
@@ -52,33 +51,87 @@ export function contactPage(infoArea) {
   contactFormLayout("contactNumber", "Phone Number");
   contactFormLayout("messageSubject", "Subject Title");
 
-  const submitButton = document.createElement('input');
-  submitButton.type = 'submit';
-  submitButton.value = 'SUBMIT';
+  //message text box
+
+  const messageDiv = document.createElement("div");
+  messageDiv.classList.add("labelDiv");
+  form.appendChild(messageDiv);
+
+  const messageLabel = document.createElement("label");
+  messageLabel.setAttribute("for", "messageArea");
+  messageLabel.textContent = "Message";
+  messageDiv.appendChild(messageLabel);
+
+  const messageArea = document.createElement("textarea");
+  messageArea.name = "messageArea";
+  messageArea.setAttribute("id", "messageArea");
+  messageDiv.appendChild(messageArea);
+/*
+  const textarea = document.getElementById('messageArea');
+textarea.style.maxHeight = '300px';
+textarea.style.minHeight = '100px';*/
+
+  //submit button
+  const submitButton = document.createElement("input");
+  submitButton.type = "submit";
+  submitButton.value = "SUBMIT";
   form.appendChild(submitButton);
 
-  const submitSuccessful = document.createElement('p');
-  submitSuccessful.classList.add('submitSuccessful')
-  formSide.appendChild(submitSuccessful)
+  //form validation messages
+  const submitSuccessful = document.createElement("p");
+  submitSuccessful.classList.add("submitSuccessful");
+  formSide.appendChild(submitSuccessful);
 
-  form.addEventListener('submit', function(event) {
+  const submitUnsuccessful = document.createElement("p");
+  submitUnsuccessful.classList.add("submitUnsuccessful");
+  form.appendChild(submitUnsuccessful);
+
+  //form validation
+  form.addEventListener("submit", function (event) {
     event.preventDefault();
-    submitSuccessful.textContent = 'Enquiry successfully submitted. We will be in contact shortly.';
-    form.style.display = 'none'
-  })
 
+    const textBoxes = document.querySelectorAll('input[type="text"]');
+    let totalFilledBox = 0;
+
+    textBoxes.forEach((textBox) => {
+      if (textBox.value !== "") {
+        totalFilledBox += 1;
+      }
+    });
+    if (messageArea.value !== "") {
+      totalFilledBox += 1;
+    }
+
+    if (totalFilledBox === textBoxes.length + 1) {
+      submitSuccessful.textContent =
+        "Enquiry successfully submitted. We will be in contact shortly.";
+      form.style.display = "none";
+    } else {
+      submitUnsuccessful.textContent =
+        "Submit unsuccessful. Please fill in all fields.";
+    }
+  });
+
+  //left listing info
   const contactInfo = [
-    'Come and speak to us at',
-    '17 High Street, Edinburgh EH1 2BG, Scotland, United Kingdom',
-    'Call us on',
-    '0123 456 78912',
-    'Send us an email at',
-    'pretendemail@gmail.com'
+    "Come and speak to us at:",
+    "17 High Street,<br> Edinburgh EH1 2BG,<br> Scotland,<br> United Kingdom",
+    "Call us on:",
+    "0123 456 78912",
+    "Send us an email at:",
+    "pretendemail@gmail.com",
   ];
 
-  contactInfo.forEach(item => {
-    const subject = document.createElement('p');
-    subject.textContent = item;
+  contactInfo.forEach((item, index) => {
+    const subject = document.createElement("p");
+    subject.innerHTML = item;
     listedInfo.appendChild(subject);
-  })
+
+    if (index % 2 === 0) {
+      subject.style.fontWeight = "bold";
+      if (index !== 0) {
+        subject.style.marginTop = "50px";
+      }
+    }
+  });
 }
