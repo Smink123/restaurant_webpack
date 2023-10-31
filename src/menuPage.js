@@ -184,12 +184,12 @@ export function menuItems(infoArea) {
   const drinks = entireMenu.filter((item) => item.type === "Drink");
 
   const menuTitle = document.createElement("p");
-  menuTitle.textContent = 'MENU';
-  menuTitle.classList.add('pageTitle')
-  infoArea.appendChild(menuTitle)
+  menuTitle.textContent = "MENU";
+  menuTitle.classList.add("pageTitle");
+  infoArea.appendChild(menuTitle);
 
   const menuNavBar = document.createElement("div");
-  menuNavBar.classList.add('menuNavBar');
+  menuNavBar.classList.add("menuNavBar");
   infoArea.appendChild(menuNavBar);
 
   const fullMenu = document.createElement("div");
@@ -201,22 +201,22 @@ export function menuItems(infoArea) {
   function createLink(linkHeader, hrefLink) {
     const link = document.createElement("a");
     link.textContent = linkHeader;
-    link.classList.add('menuLink');
+    link.classList.add("menuLink");
     link.href = hrefLink;
-    menuNavBar.appendChild(link)
+    menuNavBar.appendChild(link);
   }
 
-  createLink('STARTERS', '#starterSection');
-  createLink('MAINS', '#mainSection');
-  createLink('DESSERT', '#dessertSection');
-  createLink('DRINKS', '#drinkSection');
+  createLink("STARTERS", "#starterSection");
+  createLink("MAINS", "#mainSection");
+  createLink("DESSERT", "#dessertSection");
+  createLink("DRINKS", "#drinkSection");
 
   //item format function
 
   function itemFormat(array) {
     array.forEach((item) => {
       const itemBox = document.createElement("div");
-      itemBox.classList.add("itemBox");
+      itemBox.classList.add("itemBox", "reveal"); // reveal class is for the fade in animation
       fullMenu.appendChild(itemBox);
 
       const image = new Image();
@@ -264,24 +264,45 @@ export function menuItems(infoArea) {
     });
   }
 
+  function reveal() {
+    var reveals = document.querySelectorAll(".reveal");
+
+    for (var i = 0; i < reveals.length; i++) {
+      var windowHeight = window.innerHeight;
+      var elementTop = reveals[i].getBoundingClientRect().top;
+      var elementVisible = 150;
+
+      if (elementTop < windowHeight - elementVisible) {
+        reveals[i].classList.add("active");
+      } else {
+        reveals[i].classList.remove("active");
+      }
+    }
+  }
+  window.addEventListener("scroll", reveal);
+
+// To check the scroll position on page load
+reveal();
+
+
   function createMenuSection(id, headerText, items) {
     const menuSection = document.createElement("div");
     menuSection.classList.add("menuSection");
     menuSection.setAttribute("id", id);
     fullMenu.appendChild(menuSection);
-  
+
     const menuHeader = document.createElement("p");
     menuHeader.classList.add("menuHeader");
     menuHeader.textContent = headerText;
     menuSection.appendChild(menuHeader);
-  
+
     itemFormat(items);
   }
-  
+
   createMenuSection("starterSection", "STARTERS", starter);
   createMenuSection("mainSection", "MAINS", main);
   createMenuSection("dessertSection", "DESSERT", dessert);
   createMenuSection("drinkSection", "DRINKS", drinks);
 
-  console.log('helloooo')
+  console.log("helloooo");
 }

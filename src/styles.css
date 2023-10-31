@@ -13,10 +13,17 @@ html {
     font-weight: 100;
   }
 
+  @font-face {
+    font-family: 'priceFont';
+    src: url('./Spectral-ExtraLight.ttf') format('truetype');
+    font-style: normal;
+}
+
 
 body {
     margin: 0;
     font-family: 'mainBodyFont';
+    background-color: #f4e3b5;
 }
 
 #content {
@@ -29,7 +36,7 @@ body {
 
 .infoArea {
     flex: 3;
-    background-color: cornflowerblue;
+    background-color: #f4e3b5;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -133,6 +140,7 @@ body {
     position: sticky;
     top: 0;
     background-color: inherit;
+    z-index: 2;
 }
 
 .menuLink {
@@ -141,18 +149,29 @@ body {
     color: black;
 }
 
+.reveal{
+    position: relative;
+    transform: translateY(50px);
+    opacity: 0;
+    transition: 1s all ease;
+  }
+  .reveal.active{
+    transform: translateY(0);
+    opacity: 1;
+  }
+
 .itemBox {
     width: 800px;
     height: 400px;
     margin: 50px;
     display: flex;
     flex-direction: row;
+    z-index: 1;
 }
 
 .imageDiv {
     margin-right: 20px;
     flex: 1;
-    background-color: lightsalmon;
     overflow: hidden;
 }
 
@@ -166,16 +185,30 @@ body {
 
 .foodTitle {
     font-size: 2rem;
+    font-family: 'priceFont';
+}
+
+.price {
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 70px;
+    padding: 10px;
+    text-align: center;
 }
 
 .requirements {
     font-style: italic;
+    margin: 0;
 }
 
 
 .infoBottom {
     width: 100%;
     text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
 }
 
 .infoTop {
@@ -184,31 +217,46 @@ body {
 }
 
 /*contact page*/
+
+@keyframes fadeFromBottom {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);;
+        opacity: 1;
+    }
+}
+
 .contactFormSpace {
     width: 90%;
     height: 100%;
     background-color: aqua;
     display: flex;
     flex-direction: row;
+    animation: fadeFromBottom 2s ease;
+}
+
+.contactIntroDiv {
+    width: 90%;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .listedInfo {
     height: 100%;
-    background-color: darksalmon;
     flex: 1;
-    background-color: blueviolet;
 }
 
 .formSide {
     flex: 1;
     height: 100%;
-    background-color: yellow;
 }
 
 .formArea {
     height: auto;
     width: auto;
-    background-color: violet;
     text-align: left;
 }
 
@@ -218,6 +266,9 @@ body {
 
 input[type="text"] {
     width: 100%;
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: 5px;
 }
 
 .labelDiv {
@@ -230,6 +281,9 @@ input[type="text"] {
     min-height: 100px;
     max-height: 300px;
     resize: vertical;
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: 5px;
 }
 
 /* about page */

@@ -1,3 +1,4 @@
+
 export function contactPage(infoArea) {
   const contactTitle = document.createElement("p");
   contactTitle.textContent = "CONTACT US";
@@ -9,7 +10,7 @@ export function contactPage(infoArea) {
   infoArea.appendChild(contactIntroDiv);
 
   const contactIntro = document.createElement("p");
-  contactIntro.textContent = "Whether you have questions, wish to make a reservation, or just want to say hello, this is the place to reach us directly. Choose from the three contact options on the left, or simply fill out the contact form, and we'll get back to you shortly.";
+  contactIntro.innerHTML = "Whether you have questions,<br> wish to make a reservation,<br> or just want to say hello,<br> this is the place to reach us directly.<br> Choose from the three contact options on the left, or simply fill out the contact form, and we'll get back to you shortly.";
   contactIntroDiv.appendChild(contactIntro);
 
   const contactFormSpace = document.createElement("div");
